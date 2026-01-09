@@ -2,159 +2,423 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Joshua TTJ</title>
+  <title>Joshua Tee Tian Jin | Generative AI Research</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic website of Joshua Tee Tian Jin, PhD Candidate at KAIST working on Diffusion Models and Generative AI.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #2563eb; 
+      --accent-hover: #1d4ed8;
+      --border: #e2e8f0;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --container-width: 820px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.6;
-      color: #111;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: "Merriweather", serif;
+      line-height: 1.8;
+      font-size: 17px;
     }
 
-    header {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      margin-bottom: 1rem;
+    h1, h2, h3, h4, .nav-link, .btn, .pub-venue, .paper-meta {
+      font-family: "Manrope", sans-serif;
     }
 
-    img.profile {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    .header-text {
-      flex: 1;
-    }
-
-    .links a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #0066cc;
-      font-weight: 500;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    nav {
-      margin: 2rem 0 3rem 0;
-    }
-
-    nav a {
-      margin-right: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      color: #0066cc;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    h1 {
-      margin-bottom: 0.3rem;
+    /* 1) REDUCED SPACING BETWEEN SECTIONS */
+    section { 
+      margin-bottom: 2.5rem; 
+      scroll-margin-top: 70px;
     }
 
     h2 {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.3rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      border-bottom: 2px solid var(--bg-alt);
+      padding-bottom: 0.5rem;
+      scroll-margin-top: 70px;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    a { text-decoration: none; color: var(--accent); transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+
+    /* Layout */
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      /* REDUCED TOP PADDING */
+      padding: 1.5rem 2rem 5rem 2rem; 
     }
 
-    li {
-      margin-bottom: 0.9rem;
+    /* Header / Hero */
+    header {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 3rem;
     }
 
-    .muted {
-      color: #555;
+    img.profile {
+        width: 180px;
+        height: 180px;
+        border-radius: 12px;
+        object-fit: cover;
+        object-position: 50% 25%; 
+        box-shadow: var(--card-shadow);
+        background: #eee;
+        border: 1px solid var(--border);
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem 0;
+      color: #0f172a;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-main);
+    }
+    .social-links a:hover { color: var(--accent); }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      /* REDUCED SPACING BETWEEN NAV AND PROFILE */
+      margin-bottom: 0.5rem; 
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    .nav-inner {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+    }
+
+    .nav-link { color: var(--text-muted); }
+    .nav-link:hover { color: var(--accent); }
+
+    p { margin-bottom: 1.5rem; }
+
+    /* Research List */
+    .research-list li {
+      margin-bottom: 1rem;
+    }
+
+    /* Publications */
+    .pub-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+      border-color: #cbd5e1;
+    }
+
+    .pub-title {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-authors {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    
+    .me { text-decoration: underline; font-weight: 600; }
+
+    .pub-venue {
+      display: inline-block;
+      background: #eff6ff;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-right: 0.8rem;
+    }
+
+    .pub-links {
+      margin-top: 0.8rem;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .pub-links a { margin-right: 1rem; }
+
+    /* Services & Education Grid */
+    .grid-2-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-list li {
+      margin-bottom: 1rem;
+    }
+
+    .info-label {
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-family: "Manrope", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      header { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+      img.profile { margin: 0 auto; }
+      .social-links { justify-content: center; }
+      .grid-2-col { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <img src="profile.jpg" alt="Profile photo" class="profile" />
-    <div class="header-text">
-      <h1>Joshua TTJ</h1>
-      <p class="muted">Researcher · Machine Learning · Diffusion Models</p>
-      <div class="links">
-        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=YOUR-ID" target="_blank">Google Scholar</a>
-        <a href="https://openreview.net/profile?id=~YOUR-NAME" target="_blank">OpenReview</a>
-      </div>
-    </div>
-  </header>
-
   <nav>
-    <a href="#about">About</a>
-    <a href="#publications">Publications</a>
-    <a href="#education">Education</a>
-    <a href="#awards">Awards</a>
+    <div class="nav-inner">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#research" class="nav-link">Research</a>
+      <a href="#publications" class="nav-link">Publications</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#services" class="nav-link">Services</a>
+    </div>
   </nav>
 
-  <section id="about">
+  <div class="container">
+
+    <header id="main-header">
+      <div>
+        <img src="profile.jpg" alt="Joshua Tee Tian Jin" class="profile" />
+      </div>
+      <div class="hero-text">
+        <h1>Joshua Tee Tian Jin</h1>
+        <div class="hero-subtitle">
+          Ph.D.-Integrated Candidate<br />
+          KAIST Electrical Engineering<br />
+          Generative AI · Diffusion & Flow-Based Models
+        </div>
+        <div class="social-links">
+          <a href="mailto:joshuateetj@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://scholar.google.com/citations?user=5D-j9JYAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+          <a href="https://openreview.net/profile?id=%7EJoshua_Tian_Jin_Tee1" target="_blank"><i class="fas fa-book-open"></i> OpenReview</a>
+          <a href="Joshua_CV.pdf" target="_blank"><i class="far fa-file-alt"></i> CV</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
     <h2>About</h2>
     <p>
-      I am a researcher working on machine learning and generative models,
-      with a focus on diffusion-based methods, optimization, and representation learning.
-      My interests include theoretical foundations and practical systems.
+        I am a generative AI researcher working on diffusion models, with a focus on preference learning to improve generation quality and reliability.
     </p>
-  </section>
+    <p>
+        My research aims to reduce failure cases in diffusion-based generative systems by using preference signals to better align model outputs with user intent, while also improving sampling efficiency to support real-world applications.
+    </p>
+    </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <ul>
-      <li>
-        <strong>Paper Title One</strong><br />
-        Joshua TTJ, Coauthor Name<br />
-        <em>Conference / Journal, Year</em><br />
-        <a href="#">[PDF]</a> <a href="#">[Code]</a>
-      </li>
 
-      <li>
-        <strong>Paper Title Two</strong><br />
-        Joshua TTJ<br />
-        <em>Workshop / arXiv, Year</em><br />
-        <a href="#">[PDF]</a>
-      </li>
+
+
+
+    <section id="research">
+    <h2>Research Focus</h2>
+    <p>
+        My current work studies how preference signals and sampling dynamics interact in diffusion models, and how these interactions can be used to improve generation quality, reliability, and efficiency.
+    </p>
+    <ul class="research-list">
+        <li>
+        <strong>Preference Learning:</strong> I investigate how preference-based supervision can be integrated into diffusion models to reduce failure cases, improve output quality, and increase consistency under a given prompt, both during training and at inference time.
+        </li>
+        <li>
+        <strong>Efficient Sampling and Distillation:</strong> I work on accelerating diffusion sampling through distillation and trajectory-level learning, aiming to compress multi-step diffusion processes into fast generators without sacrificing reliability.
+        </li>
     </ul>
-  </section>
+    </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li>
-        <strong>University Name</strong><br />
-        Degree, Field<br />
-        <span class="muted">Year – Year</span>
-      </li>
-    </ul>
-  </section>
 
-  <section id="awards">
-    <h2>Awards</h2>
-    <ul>
-      <li>
-        Award Name — Organization, Year
-      </li>
-    </ul>
-  </section>
+    <section id="publications">
+      <h2>Publications</h2>
 
+      <div class="pub-card">
+        <div class="pub-title">A Gradient Guidance Perspective on Stepwise Preference Optimization for Diffusion Models</div>
+        <div class="pub-authors"><span class="me">Joshua Tian Jin Tee</span>, Hee Suk Yoon, Abu Hanif Muhammad Syarubany, Eunseop Yoon, Chang D. Yoo</div>
+        <div><span class="pub-venue">NeurIPS 2025</span></div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; margin-bottom: 0;">This work reframes stepwise preference optimization as an implicit form of gradient-based guidance, offering theoretical insights into its stability and empirical effectiveness.</p>
+        <div class="pub-links"><a href="https://openreview.net/forum?id=d6lIOnvOX2" target="_blank">OpenReview</a></div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-title">Physics Informed Distillation for Diffusion Models</div>
+        <div class="pub-authors"><span class="me">Joshua Tian Jin Tee*</span>, Kang Zhang*, Chanwoo Kim, Dhananjaya Nagaraja Gowda, Hee Suk Yoon, Chang D. Yoo</div>
+        <div><span class="pub-venue">TMLR 2024</span></div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; margin-bottom: 0;">We distill a multi-step diffusion model into a single-step generator by learning the ODE governing its diffusion trajectory using a PINN-inspired formulation.</p>
+        <div class="pub-links"><a href="https://openreview.net/forum?id=a24gfxA7jD" target="_blank">OpenReview</a></div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-title">ESD: Expected Squared Difference as a Tuning-Free Trainable Calibration Measure</div>
+        <div class="pub-authors">Hee Suk Yoon*, <span class="me">Joshua Tian Jin Tee*</span>, Eunseop Yoon, Sunjae Yoon, Gwangsu Kim, Yingzhen Li, Chang D. Yoo</div>
+        <div><span class="pub-venue">ICLR 2023</span></div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; margin-bottom: 0;">This paper proposes a differentiable calibration metric that eliminates the need for post-hoc tuning, enabling end-to-end optimization of uncertainty estimates.</p>
+        <div class="pub-links"><a href="https://openreview.net/forum?id=bHW9njOSON" target="_blank">OpenReview</a></div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-title">BI-MDRG: Bridging Image History in Multimodal Dialogue Response Generation</div>
+        <div class="pub-authors">Hee Suk Yoon*, Eunseop Yoon*, <span class="me">Joshua Tian Jin Tee*</span>, et al.</div>
+        <div><span class="pub-venue">ECCV 2024</span></div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; margin-bottom: 0;">We present a novel approach to multimodal dialogue that effectively bridges historical image context to improve the coherence of generated text responses.</p>
+        <div class="pub-links"><a href="https://doi.org/10.1007/978-3-031-72751-1_22" target="_blank">DOI</a></div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-title">C-TPT: Calibrated Test-Time Prompt Tuning for Vision-Language Models via Text Feature Dispersion</div>
+        <div class="pub-authors">Hee Suk Yoon*, Eunseop Yoon*, <span class="me">Joshua Tian Jin Tee</span>, et al.</div>
+        <div><span class="pub-venue">ICLR 2024</span></div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; margin-bottom: 0;">Proposes a calibration method for test-time prompt tuning that uses text feature dispersion to enhance the reliability of vision-language model predictions.</p>
+        <div class="pub-links"><a href="https://openreview.net/forum?id=jzzEHTBFOT" target="_blank">OpenReview</a></div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-title">Mitigating Adversarial Perturbations for Deep Reinforcement Learning via Vector Quantization</div>
+        <div class="pub-authors">Tung Luu, Thanh Nguyen, <span class="me">Joshua Tian Jin Tee</span>, et al.</div>
+        <div><span class="pub-venue">IROS 2024</span></div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; margin-bottom: 0;">Investigates the use of Vector Quantization to defend DRL agents against adversarial attacks, ensuring robust performance in unpredictable environments.</p>
+        <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/10802066" target="_blank">IEEE</a></div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted);">* indicates equal contribution</p>
+    </section>
+
+    <section>
+      <div class="grid-2-col">
+        <div id="education">
+        <h2>Education</h2>
+        <ul class="info-list">
+            <li>
+            <span class="info-label">Ph.D. Program (Integrated)</span>
+            <strong>KAIST</strong><br/>
+            Electrical Engineering<br/>
+            2022 – Present
+            </li>
+            <li>
+            <span class="info-label">Bachelor of Science</span>
+            <strong>KAIST</strong><br/>
+            Double Major in Mathematics and Physics<br/>
+            2018 – 2022
+        </li>
+        </ul>
+        </div>
+
+        <div id="services">
+          <h2>Services & Awards</h2>
+          <h4 style="margin-bottom:0.8rem;">Academic Service</h4>
+          <ul class="info-list">
+            <li><strong>Reviewer:</strong> NeurIPS 2025, ICLR 2026</li>
+          </ul>
+          <h4 style="margin-top:2rem; margin-bottom:0.8rem;">Awards</h4>
+          <ul class="info-list">
+            <li><strong>Top Reviewer:</strong> NeurIPS 2025</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Joshua Tee Tian Jin
+    </footer>
+  </div>
+
+  <script>
+    // Force browser to scroll to top on every load/refresh
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    
+    // Backup for slower loading browsers
+    window.addEventListener('load', () => {
+      setTimeout(() => window.scrollTo(0, 0), 0);
+    });
+  </script>
 </body>
 </html>
